@@ -76,7 +76,7 @@ export default function HomePage() {
 
       <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="font-serif text-3xl font-bold text-foreground mb-2">Welcome to Bella Boutique</h1>
+          <h1 className="font-serif text-3xl font-bold text-foreground mb-2">Welcome to PM Designer</h1>
           <p className="text-muted-foreground">Manage your dress design and stitching orders with elegance</p>
         </div>
 

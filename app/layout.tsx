@@ -18,7 +18,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Bella Boutique - Dress Design & Stitching",
+  title: "PM Designer - Dress Design & Stitching",
   description: "Professional dress design and stitching business management",
   generator: "v0.app",
 }
