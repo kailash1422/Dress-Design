@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Calendar, Clock, Package, Users, AlertTriangle, CheckCircle } from "lucide-react"
 import { getOrders, getOrdersDueToday, getOrdersDueSoon } from "@/lib/orders"
+import { getCustomers } from "@/lib/customers"
 import type { Order } from "@/lib/types"
 import Link from "next/link"
 
@@ -31,13 +32,13 @@ export default function HomePage() {
 
     // Calculate stats
     const inProgressCount = allOrders.filter((order) => order.status === "in-progress").length
-    const uniqueCustomers = new Set(allOrders.map((order) => order.customerName)).size
+    const totalCustomersCount = getCustomers().length
 
     setStats({
       totalOrders: allOrders.length,
       dueToday: todaysOrders.length,
       inProgress: inProgressCount,
-      totalCustomers: uniqueCustomers,
+      totalCustomers: totalCustomersCount,
     })
 
     // Get recent orders (last 5)
@@ -114,16 +115,18 @@ export default function HomePage() {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Customers</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{stats.totalCustomers}</div>
-              <p className="text-xs text-muted-foreground">Total customers</p>
-            </CardContent>
-          </Card>
+          <Link href="/customers">
+            <Card className="hover:border-primary transition-colors cursor-pointer h-full">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">Customers</CardTitle>
+                <Users className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{stats.totalCustomers}</div>
+                <p className="text-xs text-muted-foreground">Registered profiles</p>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
 
         {urgentOrders.length > 0 && (

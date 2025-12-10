@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { Calendar, ClipboardList, Home, Plus } from "lucide-react"
+import { Calendar, ClipboardList, Home, Plus, Users, Palette } from "lucide-react"
 import { NotificationBadge } from "./notification-badge"
 
 const navigation = [
@@ -11,6 +11,8 @@ const navigation = [
   { name: "New Order", href: "/orders/new", icon: Plus },
   { name: "All Orders", href: "/orders", icon: ClipboardList },
   { name: "Daily Work", href: "/daily", icon: Calendar },
+  { name: "Customers", href: "/customers", icon: Users },
+  { name: "Design Studio", href: "/studio", icon: Palette },
 ]
 
 export function Navigation() {
